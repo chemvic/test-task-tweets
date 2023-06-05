@@ -12,7 +12,7 @@ import App from './components/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <BrowserRouter basename="/test-task-tweetcards">
+    <BrowserRouter basename="/test-task-tweets">
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>         
            <App /> 
