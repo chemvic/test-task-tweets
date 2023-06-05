@@ -41,10 +41,10 @@ import css from './Card.module.css';
              </div>
              <div className={css.card_info}>
              <p>
-          <span>{tweets}</span> Tweets
+          <span>{tweets}</span> TWEETS
         </p>
         <p>
-          <span>{formattedQuantity}</span> Followers
+          <span>{formattedQuantity}</span> FOLLOWERS
         </p>
              </div>
 
