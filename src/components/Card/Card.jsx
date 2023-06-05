@@ -5,7 +5,6 @@ import { updateUser, fetchUsers } from 'redux/users/operations';
 import { useDispatch  } from 'react-redux';
 import { store } from "redux/store.js";
 import logo from 'images/Logo.png';
-import decor from 'images/decor.png';
 import css from './Card.module.css';
 
  const Card = ({
@@ -20,6 +19,7 @@ import css from './Card.module.css';
         // const followed=useSelector((state) => state.follow[id]);
         const state = store.getState();
         const limit=state.currentLimit.limit;
+        const formattedQuantity = followers.toLocaleString('en-US');
 
 
         const updatedIsFollowed = !isFollowed;
@@ -45,12 +45,16 @@ import css from './Card.module.css';
                  <img src={avatar} alt={user} width="62" height="62"className={css.avatar} />
              </div>
              <div className={css.card_info}>
-                 <p className={css.card_text}>{tweets} tweets</p>
-                 <p className={css.card_text}>{followers} followers</p>
+             <p>
+          <span>{tweets}</span> Tweets
+        </p>
+        <p>
+          <span>{formattedQuantity}</span> Followers
+        </p>
              </div>
 
   
-    <button className='button' onClick={()=>{handleClick(id)}} style={{ backgroundColor: isFollowed ? '#5CD3A8' : '#EBD8FF' }}>
+    <button className={css.button} onClick={()=>{handleClick(id)}} style={{ backgroundColor: isFollowed ? '#5CD3A8' : '#EBD8FF' }}>
         {isFollowed ? 'Following' : 'Follow'}
       </button>
 

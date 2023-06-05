@@ -34,7 +34,7 @@ const dispatch= useDispatch();
  
     return (<div className={css.container}>
 
-{isLoading && !error && <Loader visible={true}/>}
+
           <ul className={css.users}>
        { users.length>0 && users
              .map(({  user,
@@ -53,9 +53,10 @@ const dispatch= useDispatch();
 
         <div className={css.buttons}>
            <Link to="/" className={css.button} onClick={() => { dispatch(resetLimit()) }}>Back home</Link>
+        {limit<12&&isLoading && !error && <Loader visible={true}/>}
         {limit>0&&limit<12&&<LoadMoreButton/>}
         </div>
-
+        
        
     </div>
       
