@@ -1,6 +1,6 @@
 .users{
-    padding: 0;
-    margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
@@ -10,6 +10,7 @@
      margin: 0 auto;
      padding: 30px;
      background-color: #766A92;
+ 
    }
 
   .users_item{

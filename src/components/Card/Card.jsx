@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-// import {toggleFollow} from 'redux/following/followSlice';
 import { updateUser, fetchUsers } from 'redux/users/operations';
-// import {selectIsFollowed} from 'redux/following/selectors';
 import { useDispatch  } from 'react-redux';
 import { store } from "redux/store.js";
 import logo from 'images/Logo.png';
@@ -23,8 +21,8 @@ import css from './Card.module.css';
 
         const updatedIsFollowed = !isFollowed;
     const updatedFollowers = isFollowed
-      ? (followers += 1)
-      : (followers -= 1);
+      ? (followers -= 1)
+      : (followers += 1);
     
         const handleClick = () => {     
 

@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { store } from "redux/store.js";
+import { resetUsers } from "redux/users/usersSlice";
 
 
 import { useEffect } from "react";
@@ -51,8 +52,6 @@ const dispatch= useDispatch();
   
  
     return (<div className={css.container}>
-{/* { visibleUsers.length=0 ? <h1>THERE IS NOT USERS BY YOUR QUERY</h1> : */}
-
           <ul className={css.users}>
        { visibleUsers.length>0 && visibleUsers
              .map(({  user,
@@ -70,7 +69,7 @@ const dispatch= useDispatch();
         </ul>
         { visibleUsers.length>0 &&
         <div className={css.buttons}>
-           <Link to="/" className={css.button} onClick={() => { dispatch(resetLimit()) }}>Back home</Link>
+           <Link to="/" className={css.button} onClick={() => { dispatch(resetLimit());dispatch(resetUsers())}}>Back home</Link>
         {limit<12&&isLoading && !error && <Loader visible={true}/>}
         {limit>0&&limit<12&&<LoadMoreButton/>}
         </div>}

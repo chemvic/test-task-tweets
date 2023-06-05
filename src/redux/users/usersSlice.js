@@ -27,6 +27,9 @@ const usersSlice = createSlice({
             state.items[index].followers = followers;
           }
         },
+        resetUsers(state){
+           state.items=[];
+        }
       }, 
     extraReducers: (builder) =>{
       builder
@@ -48,5 +51,5 @@ const usersSlice = createSlice({
       })  
     }
   });
-  export const { changeFollowers } = usersSlice.actions;
+  export const { changeFollowers, resetUsers } = usersSlice.actions;
 export const usersReducer = usersSlice.reducer;
