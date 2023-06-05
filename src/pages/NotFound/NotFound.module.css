@@ -1,0 +1,16 @@
+.message{
+    font-weight: 500;
+    font-size: 48px;
+    text-align: center;
+    color: black
+    
+};
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }

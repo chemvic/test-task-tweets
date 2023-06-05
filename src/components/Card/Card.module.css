@@ -1,0 +1,60 @@
+.card{
+    width: 380px;
+    height: 460px;
+    border-radius: 20px;
+    background-color: #5736A3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  background: url(images/decor.png), 
+   linear-gradient(114.99deg, #471ca9 -0.99%, #5736A3 54.28%, #4b2a99 78.99%);
+box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+background-position: 28px 28px, 0;
+background-repeat: no-repeat;
+background-size: 308px 168px, 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    fill: rgba(255, 255, 255, 0.3);
+  }
+.card_avatar {
+    position: absolute;
+    top: 40%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height:80px;
+    padding-top: 9px;
+    background: url(images/frameForAvatar.png) 50% / cover, no-repeat;
+  }
+  
+  .avatar  {
+    border-radius: 50%;
+  }
+  .card_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     padding-top: 284px;
+    
+  }
+  .card_text{
+     color: #EBD8FF;
+     font-family: 'Montserrat';
+     font-style: normal;
+     font-size: 20px;
+     line-height: 1.2;
+     font-weight: 500;
+     text-transform: capitalize;
+  }
+
