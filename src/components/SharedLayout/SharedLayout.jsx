@@ -1,7 +1,9 @@
 import css from './SharedLayout.module.css';
 import { Outlet, NavLink } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { resetLimit } from "redux/currentLimit/currentLimitSlice";
+import  StatusFilter  from 'components/StatusFilter';
+import { selectUsers } from 'redux/users/selectors';
 
 import { Suspense } from 'react';
 
@@ -9,12 +11,13 @@ import { Suspense } from 'react';
 const SharedLayout =( ) => {
 
   const dispatch= useDispatch();
+  const users=useSelector(selectUsers);
   
     return(
         <>
         <div >
           <header className={css.header}>
-             <nav className={css.nav}>
+             <nav className={css.header_nav}>
         <li  className={css.link}>
                   <NavLink to="/" style={({ isActive }) =>({color: isActive ? '#5CD3A8' : '#EBD8FF'})} onClick={() => { dispatch(resetLimit()) }}>Home</NavLink>
         </li>
@@ -22,6 +25,8 @@ const SharedLayout =( ) => {
                   <NavLink to="/tweets" style={({ isActive }) =>({color: isActive ? '#5CD3A8' : '#EBD8FF'})}>Tweet cards</NavLink>
         </li>
       </nav>
+      <div className={css.header_filter}>{users.length>0&&<StatusFilter />} </div>
+     
         </header>
 
         </div>      

@@ -11,12 +11,30 @@ import { useEffect } from "react";
 import { fetchUsers } from "redux/users/operations";
 import { resetLimit } from "redux/currentLimit/currentLimitSlice";
 import { selectUsers, selectIsLoading, selectError } from 'redux/users/selectors';
+import {  getStatusFilter } from "redux/filters/selectors";
+import { statusFilters } from "redux/filters/constants";
+
+const getVisibleUsers = (users, statusFilter) => {
+   switch (statusFilter) {
+     case statusFilters.follow:
+       return users.filter(user => !user.isFollowed);
+     case statusFilters.following:
+       return users.filter(user => user.isFollowed);
+     default:
+       return users;
+   }
+ };
+
+
 
 const Tweets = () => {
 
 const dispatch= useDispatch();
 
+
      const users=useSelector(selectUsers);
+     const statusFilter = useSelector(getStatusFilter);
+     const visibleUsers = getVisibleUsers(users, statusFilter);
      const isLoading = useSelector(selectIsLoading);   
      const error = useSelector(selectError);
      const state = store.getState();
@@ -33,10 +51,10 @@ const dispatch= useDispatch();
   
  
     return (<div className={css.container}>
-
+{/* { visibleUsers.length=0 ? <h1>THERE IS NOT USERS BY YOUR QUERY</h1> : */}
 
           <ul className={css.users}>
-       { users.length>0 && users
+       { visibleUsers.length>0 && visibleUsers
              .map(({  user,
                 id,
                 avatar,
@@ -50,12 +68,13 @@ const dispatch= useDispatch();
       
              ))}
         </ul>
-
+        { visibleUsers.length>0 &&
         <div className={css.buttons}>
            <Link to="/" className={css.button} onClick={() => { dispatch(resetLimit()) }}>Back home</Link>
         {limit<12&&isLoading && !error && <Loader visible={true}/>}
         {limit>0&&limit<12&&<LoadMoreButton/>}
-        </div>
+        </div>}
+        { visibleUsers.length===0 &&<h1>THERE IS NOT USERS BY YOUR QUERY</h1>}
         
        
     </div>

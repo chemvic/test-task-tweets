@@ -16,7 +16,6 @@ import css from './Card.module.css';
     isFollowed
     }) => {
         const dispatch=useDispatch();
-        // const followed=useSelector((state) => state.follow[id]);
         const state = store.getState();
         const limit=state.currentLimit.limit;
         const formattedQuantity = followers.toLocaleString('en-US');
@@ -27,13 +26,11 @@ import css from './Card.module.css';
       ? (followers += 1)
       : (followers -= 1);
     
-        const handleClick = () => {
-      
-            // dispatch(toggleFollow(id));
+        const handleClick = () => {     
+
             dispatch(updateUser({id,updatedFollowers,updatedIsFollowed }));
             dispatch(fetchUsers(limit));
-            // dispatch(changeFollowers({ id, followers:followers + (followed ? -1 : 1) }));
-                
+               
           };
         
     return (

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {followReducer} from "./following/followSlice";
+import {filtersReducer} from "./filters/filtersSlice";
 import {usersReducer} from "./users/usersSlice";
 import {currentLimitReducer} from "./currentLimit/currentLimitSlice";
 import {
@@ -15,14 +15,6 @@ import {
   
   import storage from 'redux-persist/lib/storage';
   
-const followPersistConfig = {
-    key: 'follow',
-    storage,
-};
-// const usersPersistConfig = {
-//     key: 'users',
-//     storage,
-// };
 const currentLimitPersistConfig = {
     key: 'currentLimit',
     storage,
@@ -32,8 +24,7 @@ export const store = configureStore({
   reducer: {
     users: usersReducer,
     currentLimit: persistReducer(currentLimitPersistConfig, currentLimitReducer),
-    follow: persistReducer(followPersistConfig, followReducer),
-     
+    filters: filtersReducer,    
 
 },
 middleware: (getDefaultMiddleware) =>
