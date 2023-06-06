@@ -2,6 +2,7 @@ import css from './Tweets.module.css';
 import Card from 'components/Card';
 import LoadMoreButton from 'components/LoadMoreButton';
 import Loader from 'components/Loader/Loader';
+import ImageStub from 'components/ImageStub';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { store } from "redux/store.js";
@@ -73,7 +74,7 @@ const dispatch= useDispatch();
         {limit<12&&isLoading && !error && <Loader visible={true}/>}
         {limit>0&&limit<12&&<LoadMoreButton/>}
         </div>}
-        { visibleUsers.length===0 &&<h1>THERE IS NOT USERS BY YOUR QUERY</h1>}
+        { visibleUsers.length===0 &&<ImageStub/>}
         
        
     </div>
