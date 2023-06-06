@@ -74,7 +74,7 @@ const dispatch= useDispatch();
         {limit<12&&isLoading && !error && <Loader visible={true}/>}
         {limit>0&&limit<12&&<LoadMoreButton/>}
         </div>}
-        { visibleUsers.length===0 &&<ImageStub/>}
+        { visibleUsers.length===0&&!isLoading &&<ImageStub/>}
         
        
     </div>
