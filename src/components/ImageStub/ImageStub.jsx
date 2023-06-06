@@ -1,10 +1,10 @@
-import imageStub from 'images/man-searching.jpg';
+import imageStub from 'images/cleanPaper.png';
 import css from './ImageStub.module.css';
 
 const ImageStub = () => {
   return (
     <div className={css.imageStub}>
-      <img src={imageStub} alt="searchImage" width={400} />
+      <img src={imageStub} alt="searchImage" width={500} />
     </div>
   );
 };
