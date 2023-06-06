@@ -10,7 +10,9 @@
    };
  
    .title {
-   text-transform: capitalize;
      text-align: center;
-     color: #EBD8FF
+     color: #EBD8FF;
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 600;
+     text-transform: uppercase;
    };

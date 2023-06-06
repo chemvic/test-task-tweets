@@ -24,7 +24,9 @@
   .link a {
     color: #333;
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    text-transform: uppercase;
     font-size: 20px;
     transition: color 0.2s ease-in-out;
   }

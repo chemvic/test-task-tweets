@@ -7,6 +7,10 @@
     cursor: pointer;
     background-color: #e2e5e8;
     color: inherit;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
   }
   
   .btn.isSelected {
